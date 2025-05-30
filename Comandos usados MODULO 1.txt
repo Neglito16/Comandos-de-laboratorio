@@ -1,0 +1,50 @@
+Comandos usados practica 2
+
+ifconfig
+ip a
+nmcli con show
+nmcli con mod <"nombre de la red"> ipv4.method auto
+sudo nano /etc/network/interfaces
+nmcli con down <"nombre de la red">
+nmcli con up <"nombre de la red">
+sudo nmtui
+sudo systemctl restart networking
+sudo nmcli con mod <"nombre de la red"> /
+ipv4.addresses <dirección ip> /
+ipv4.gateway <gateway> /
+ipc4.dns <"8.8.8.8 8.8.4.4"> (DNS de google) /
+ipv4.method manual
+ifconfig <nombre la interfaz> up
+ifconfig <nombre la interfaz> down
+============================================
+
+
+Comandos usados practica 3
+
+useradd -m -s /bin/bash <nombre del usuario>
+passwd <nombre del usuario>
+usermod -aG sudo <nombre del ususario>
+groups <nombre del ususario>
+useradd <nombre del usuario>
+groupadd <nombre del grupo>
+userdel <nombre del usuario>
+groupdel <nombre del grupo>
+============================================
+
+
+Comandos usados practica 4
+
+ls
+ls -l
+cd
+mkdir <materia>
+touch <nombre del archivo>
+vi (dentro de vi utilizamos esc + :wq)
+cat
+chmod <numeración de permisos> <nombre del archivo>
+chmod <numeración de permisos> <nombre del archivo>
+mkdir <materia2>
+cp <nombre del archivo> <materia2>
+rm -rf <materia>
+rmdir (lo use para mostrarlo y dar un ejemplo)
+============================================
