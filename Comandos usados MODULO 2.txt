@@ -1,0 +1,42 @@
+Comandos usados practica 1
+
+sudo su
+apt update && apt upgrade -y
+cat etc/apt/sources.list
+apt-cache search bashtop
+apt install bashtop
+bashtop (para salir presionamos la letra q)
+apt purge bashtop
+apt autoremove -y
+============================================
+
+
+Comandos usados practica 2
+
+crontab -e
+0 23 * * * apt update && apt upgrade
+0 3  * * 7 sudo reboot
+contrab -l
+ls
+ls /tmp
+echo "rm -rf /tmp/*" | at now + 1 minute
+atq
+============================================
+
+
+Comandos usados practica 3
+
+sudo su
+lsblk
+fdisk /dev/sdb (seleccionar n para nueva partición)
+mkfs.ext4 /dev/sdb1
+mkdir /home/Jostin/Desktop/Prueba
+ls
+mount /dev/sdb1 /home/jostin/Desktop/Prueba
+cd /home/jostin/Desktop/Prueba
+touch <AdrianAlcantara.txt>
+umount /home/Jostin/Desktop/Prueba
+mount <disco> /mnt
+ls /mnt
+============================================
+
