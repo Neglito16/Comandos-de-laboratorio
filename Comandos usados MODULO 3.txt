@@ -1,0 +1,40 @@
+Comandos usados practica 1
+
+sudo su
+cd /etc/default
+ls
+sudo cp /etc/default/grub /etc/default/respaldo
+cd respaldo
+sudo cp /etc/default/respaldo /etc/default/grub
+nano /etc/default/grub
+update-grub
+reboot
+rw init=/bin/bash
+passwd <nombre de usuraio>
+reboot -f
+============================================
+
+
+Comandos usados practica 2
+
+nano <backup.sh>
+#!/bin/bash
+FECHA=$(date +"%d-%m-%Y:%H:%M")
+tar -czvf /home/$(whoami)/backup_$FECHA.tar.gz /home/$(whoami)
+ctrl o (para guardar)
+chmod +x backup.sh
+./backup.sh
+cd /home/Jostin
+ls -l
+nano <datos_ifconfig.sh>
+#!/bin/bash
+echo "INTRODUZCA EL NOMBRE DEL ARCHIVO:"
+read nombre_archivo
+ifconfig > /home/$(whoami)/Desktop/$nombre_archivo.txt
+chmod +x datos_ifconfig.sh
+./datos_ifconfig.sh
+cd /home/jostin/Desktop
+ls
+cat <nombre_archivo>
+============================================
+
