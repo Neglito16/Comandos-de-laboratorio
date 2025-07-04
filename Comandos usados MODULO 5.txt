@@ -1,0 +1,59 @@
+Comandos usados practica 1
+
+apt update (Ambas)
+apt install rsync (Ambas)
+apt install openssh-server (Ambas)
+apt install openssh-client (Ambas)
+systemctl status ssh (clon)
+systemctl start ssh (clon)
+systemctl enable ssh (clon)
+ssh-keygen -t rsa -b 4096 (servidor primario)
+ssh-copy-id jostin@10.0.0.114 (servidor primario)
+ssh jostin@10.0.0.114 (servidor primario)
+exit
+cd /home/jostin/Desktop (servidor primario)
+mkdir Prueba (servidor primario)
+touch {001..100}.txt (servidor primario)
+rsync -avz -e ssh /home/Jostin/Desktop/Prueba jostin@10.0.0.114:/home/jostin/Prueba1 (servidor primario)
+cd /home/jostin/Prueba1 (clon)
+cd Prueba (clon)
+cd /home/Jostin (servidor primario)
+nano cron_prueba.sh (servidor primario)
+	#!/bin/bash
+	rsync -avz -e ssh /home/Jostin/Desktop/Prueba jostin@	10.0.0.114:/home/jostin/Prueba1 (servidor 	primario)
+chmod +x cron_prueba.sh (servidor primario)
+crontab -e (servidor primario)
+	* * * * * /home/jostin/cron_prueba.sh
+touch /home/jostin/Desktop/Prueba/New_D
+============================================
+
+
+Comandos usados practica 2
+
+sudo su
+apt install heartbeat
+nano /etc/ha.d/ha.cf
+logfile /var/log/ha-log
+	logfacility     local0
+	keepalive       2
+	deadtime        10
+	warntime        5
+	initdead        20
+	udpport         694
+	bcast           eth0
+	auto_failback   on
+	node            server1
+	node            server2
+nano /etc/ha.d/haresources
+	server1 IPaddr::10.0.0.100/24/eth0 apache2
+nano /etc/ha.d/authkeys
+	auth 1
+	1 crc
+chmod 600 /etc/ha.d/authkeys
+hostnamectl set-hostname server1
+hostname
+systemctl start heartbeat
+systemctl enable heartbeat
+systemctl status heartbeat
+ping 10.0.0.100
+============================================
