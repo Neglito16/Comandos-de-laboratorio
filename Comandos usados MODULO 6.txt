@@ -1,0 +1,48 @@
+Comandos usados practica 1
+
+sudo su
+apt update
+apt install gnupg2
+mkdir GPG.prueba
+cd GPG.prueba
+nano texto.txt
+gpg2 -c texto.txt
+	passphrase: 12345
+ls
+cat texto.txt.gpg
+gpg2 -o texto.txt -d cifrado.txt.gpg
+cat texto.txt
+============================================
+
+
+Comandos usados practica 2
+
+sudo su
+systemctl start vsftpd
+systemctl enable vsftpd
+systemctl status vsftpd
+systemctl status ssh
+systemctl status apache2
+curl -I http://10.0.0.71
+ssh jostin@10.0.0.5 en maquina remota
+iptables -A INPUT -p tcp --dport 80 -j REJECT
+iptables -A INPUT -p tcp --dport 21 -j REJECT
+iptables -A INPUT -p tcp --dport 22 -j REJECT
+iptables -A OUTPUT -p tcp --sport 80 -j REJECT
+iptables -A OUTPUT -p tcp --sport 21 -j REJECT
+iptables -A OUTPUT -p tcp --sport 22 -j REJECT
+iptables -D OUTPUT -p tcp --sport 80 -j REJECT
+iptables -D OUTPUT -p tcp --sport 21 -j REJECT
+iptables -D OUTPUT -p tcp --sport 22 -j REJECT
+iptables -D INPUT -p tcp --dport 80 -j REJECT
+iptables -D INPUT -p tcp --dport 21 -j REJECT
+iptables -D INPUT -p tcp --dport 22 -j REJECT
+ufw status verbose
+ufw deny 80/tcp
+ufw deny 21/tcp
+ufw deny 22/tcp
+ufw allow 80/tcp
+ufw allow 21/tcp
+ufw allow 22/tcp
+============================================
+
